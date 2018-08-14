@@ -1,0 +1,29 @@
+{
+  "name": "csv-converter.2.0.0",
+  "version": "2.0.0",
+  "description": "csv converter avec ajout du plugin pour transformer le tableau en \u001b[3~\u001b[3\u001b[3~\u001b[3~\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[D\u001b[D\u001b[Den csv",
+  "main": "jquery-csv.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcdahan/csv-converter.git"
+  },
+  "author": "EVERMAPS",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/marcdahan/csv-converter/issues"
+  },
+  "homepage": "https://github.com/marcdahan/csv-converter#readme",
+  "dependencies": {
+    "browser-sync": "^2.24.6",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.1",
+    "jshint": "^2.9.6"
+  }
+}
