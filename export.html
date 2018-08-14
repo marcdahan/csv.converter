@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS CSV</title>
+    <script type="text/javascript" src ="JsonParser.js"></script>
+    <script type="text/javascript" src ="polyglot.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <button class="exporter-1">export to CSV</button>
+</body>
+    <script type="text/javascript">
+        var $button = $('.exporter-1');
+        var jsFile = dico;
+        var parser = new JsonParser(["Context", "English", "Français"], "export");
+        $button.on('click', function(){
+            parser.exportJsonToCsv(jsFile);
+        });
+    </script>
+</html>
