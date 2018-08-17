@@ -48,9 +48,9 @@ JsonParser.prototype.jsonToCsv = function(json) {
 
 
 JsonParser.prototype.exportJsonToCsv = function(json) {
-    this.jsonToCsv(json);
+    this.jsonToTable(json);
     var a         = document.createElement('a');
-    a.href        = 'data:text/csv;charset=UTF-8' + escape(this.csv);
+    a.href        = 'data:text/csv;charset=UTF-8' + escape(this.table);
     a.target      = '_blank';
     a.download    = 'export.csv';
     document.body.appendChild(a);

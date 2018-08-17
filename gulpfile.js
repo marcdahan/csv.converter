@@ -1,38 +1,35 @@
+'use strict';
 var gulp = require('gulp');
-var $ = jQuery = require('jquery');
-require('ext/jquery-csv-master/src/jquery.csv.js');
-var env = "dev";
-var browserSync = require('browser-sync').create();
-//var sassOptions = {
-//    indentType: tab,
-//    indentWidth:1,
-//    debug_info: true,
-//  	outputStyle: 'nested',
-//};
-var src = {
-	//scss: 'src/scss/*',
-	js: 'dev/js/*',
-	default: 'dev/ws.js'
-};
-var dev = {
-	default: 'dev/default.html'
-};
-// Server
-gulp.task('init_browserSync_dev', function() {
-	browserSync.init({
-        server: "dev/",
-        index: "default.html",
-        directory: false
+var browserSync = require("browser-sync")
+var nodemon = require('gulp-nodemon');
+var nodeInspector = require('gulp-node-inspector');
+
+gulp.task('default', ['browser-sync'], function () {
+	console.log('task default');
+});
+
+gulp.task('browser-sync', ['nodemon'], function() {
+	console.log('bs init');
+	browserSync.init(null, {
+		proxy: "http://127.0.0.1:5000",
+        files: ["dev/**/*.*"],
+        browser: "chrome",
+        port: 7000
 	});
 });
-//gulp.task('sass_dev', function() {
-//	return gulp.src(src.scss)
-//		.pipe(sass(sassOptions))
-//		//.on('error', sassOptions.logError) revoir la doc
-//		.pipe(gulp.dest(dev.css));
-//});
-gulp.task('default', function() {
-	//gulp.watch(src.js, ['sass_dev']).on("change", browserSync.reload);
-	gulp.watch(src.js).on("change", browserSync.reload);
+
+gulp.task('nodemon', function (cb) {
+	var started = false;
+	return nodemon({
+		exec: 'node --inspect',
+		script: 'dev/app.js',
+		verbose: true
+	}).on('start', function () {
+		if (!started) {
+			cb();
+			started = true;
+		}
+	}).on('restart', function () {
+		console.log('coucou');
+	})
 });
-gulp.task('default', ['init_browserSync_dev']);
