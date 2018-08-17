@@ -2,13 +2,17 @@ $( document ).ready(function() {
 
 	$("form.em-csv-form").on('submit', function() {
 
+		var json = dico;
+		var fileName = $(this).find("[name='em-filename']").val() || 'export';
+		var columns = ['Context', 'English', 'Français'];
+
 		$.ajax({
 			  method: 'GET',
 			  url: '/dataToolKit/converter/jsonToTable',
 			  data: {
 				  "json": dico,
-				  "columns": ['Context', 'English', 'Français'],
-				  "fileName": 'traductions-franck-provost'
+				  "columns":  columns,
+				  "fileName": fileName
 			  }
 			})
 			.done(function(data, textStatus, jqXHR) {
@@ -18,7 +22,7 @@ $( document ).ready(function() {
 				console.log('jqXHR: ' + jqXHR + ', textStatus: ' + textStatus + ', errorThrown: ' + errorThrown);
 			})
 			.always(function(data, textStatus, jqXHR) {
-				console.log("request ended by a " + textStatus );
+				console.log("request ended");
 			});
 	});
 
