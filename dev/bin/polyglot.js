@@ -9,14 +9,13 @@ var dico =  {
     },
     'disney': {
         'mickey': 'mouse',
-        'rapetous': 'pas gentils',
         'donald': {
-            'riri': 'gentil',
-            'fifi': 'sympa',
-            'loulou': 'drole',
+            'riri': 'astucieux',
+            'fifi': 'débrouillard',
+            'loulou': 'drôle',
             'amis': {
                 'dingo': 'gentil',
-                'pat hibulaire': 'pas gentils'
+                'Géo Trouvetou': 'génial'
             }
         }
     },

@@ -19,53 +19,41 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="img/favicon.ico/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
-        <script type="text/javascript" src="lib/jquery.1.12.1.js"></script>
-        <script type="text/javascript" src="js/JsonToArray.js"></script>
-        <script type="text/javascript" src="bin/polyglot.js"></script>
-
+        <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-      <form action="javascript:;" class="em-csv-form" method="get">
-        <!--<label class="em-field em-street em-section">
-          <input type="file" name="fileselect" multiple="multiple">
-      </label>-->
-        <button type="submit">export to CSV</button>
-      </form>
-    </body>
-    <script type="text/javascript">
-    window.logResults = function() {
-      alert(this.data);
+        <h1 class="h1">DATAS TOOL KIT</h1>
+        <form action="javascript:;" class="em-csv-form" method="get">
+            <fieldset>
+                <legend class="em-csv-form-legend">Translations from JSON to CSV:</legend>
+                <label class="em-field em-filename">
+                    <input autocomplete="on" type="text" name="em-filename" placeholder="name of your csv file">
+                    <span class="em-explanation">default value: export</span>
+                </label>
+                <label class="em-field em-json">
+                    <input autocomplete="on" type="text" name="em-json" placeholder="paste Json object here">
+                    <span class="em-explanation">
+                        example:
+                        <pre class="em-code-example">
+
+{
+    'newsletter': {
+        'Firstname': 'Prénom',
+        'I Subscribe': 'Je m’inscris',
+        'Man': 'Homme',
+        'Name': 'Nom',
+        '* Mandatory fields': '* Champs obligatoires',
+        'Woman': 'Femme'
     }
-
-    $( document ).ready(function() {
-
-        var jsFile = dico; //à remplacer par un ajax
-        var parser = new JsonParser(['Context', 'English', 'Français'], 'export');
-        $("form.em-csv-form").on('submit', function() {
-            parser.jsonToTable(jsFile);
-            var parsedTable = JSON.stringify(parser.table);
-            $.ajax({
-                  method: 'GET',
-                  url: 'http://www.localhost:7000/converter',
-                  contentType: 'application/json',
-                  crossDomain : true,
-                  dataType: 'jsonp',
-                  jsonp: 'logResults',
-                  jsonpCallback: logResults,
-                  cache: false,
-                  data: parsedTable
-                })
-                .done(function(data, textStatus, jqXHR) {
-                    console.log('data: ' + data + ', textStatus: ' + textStatus + ', jqXHR: ' + jqXHR);
-                })
-                .fail(function(jqXHR, textStatus, errorThrown) {
-                    console.log('jqXHR: ' + jqXHR + ', textStatus: ' + textStatus + ', errorThrown: ' + errorThrown);
-                })
-                .always(function() {
-                  alert( "complete" );
-                });
-        });
-
-    });
-    </script>
+}
+                    </pre>
+                    </span>
+                </label>
+                <button type="submit" class="em-csv-submit">export to CSV</button>
+            </fieldset>
+        </form>
+    </body>
+    <script type="text/javascript" src="lib/jquery.3.3.1.js"></script>
+    <script type="text/javascript" src="bin/polyglot.js"></script>
+    <script type="text/javascript" src="js/csv-converter.form.js"></script>
 </html>

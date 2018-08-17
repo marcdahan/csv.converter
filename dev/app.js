@@ -1,9 +1,9 @@
 
 var express = require('express');
 var app = express();
+var dataToolKit = new (require('data-tool-kit'));
+var app = express();
 var router = express.Router();
-var $ = jQuery = require('jquery');
-require('./lib/jquery.csv.js');
 
 app.use(express.static('dev'));
 
@@ -13,12 +13,14 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/converter', function(req, res, next) {
-    res.send(JSON.stringify(req));
+app.get('/dataToolKit/converter/jsonToTable', function(req, res, next) {
+    dataToolKit.init(req.query.columns, req.query.fileName);
+    dataToolKit.jsonToTable(req.query.json);
+    res.send(JSON.stringify(dataToolKit.getTable()));
 });
 
 
-app.get('/', function(req, res, next) {
+app.get('(/default.html|\/)', function(req, res, next) {
     res.sendfile('dev/default.html');
 });
 

@@ -1,16 +1,24 @@
-var JsonParser = function(Columns, fileName) {
-    this.fileName = fileName;
+
+var DataToolKit = function() {
+    this.fileName = null;
     this.table = [];
     this.csv = null;
     this.jsonCopy = null;
-    if (Object.prototype.toString.call(Columns) === '[object Array]') {
+    this.getTable = function () {
+            return this.table;
+    }
+};
+
+DataToolKit.prototype.init = function(Columns, fileName) {
+	this.fileName = fileName;
+	if (Object.prototype.toString.call(Columns) === '[object Array]') {
         this.table.push(Columns);
     } else {
         throw "bad parameter";
     }
 };
 
-JsonParser.prototype.isJSON = function(json) {
+DataToolKit.prototype.isJSON = function(json) {
     var bool = false;
     if (Object.prototype.toString.call(json) === '[object Object]') {
         bool = true;
@@ -18,7 +26,7 @@ JsonParser.prototype.isJSON = function(json) {
     return bool;
 };
 
-JsonParser.prototype.jsonToTable = function(json, path) {
+DataToolKit.prototype.jsonToTable = function(json, path) {
     if (!this.isJSON(json)) {
         throw "bad parameter" + JSON.parse(json);
     }
@@ -32,7 +40,7 @@ JsonParser.prototype.jsonToTable = function(json, path) {
     }, this));
 };
 
-JsonParser.prototype.tabletoCsv = function() {
+DataToolKit.prototype.tabletoCsv = function() {
     var pretreated = [];
     $.each(this.table,function(index, value) {
         pretreated.push(value.join('|'));
@@ -40,14 +48,14 @@ JsonParser.prototype.tabletoCsv = function() {
     this.csv = pretreated.join('\r');
 };
 
-JsonParser.prototype.jsonToCsv = function(json) {
+DataToolKit.prototype.jsonToCsv = function(json) {
     this.jsonCopy = $.extend({}, json);
     this.jsonToTable(json);
     this.tabletoCsv(this.table);
 };
 
 
-JsonParser.prototype.exportJsonToCsv = function(json) {
+DataToolKit.prototype.exportJsonToCsv = function(json) {
     this.jsonToTable(json);
     var a         = document.createElement('a');
     a.href        = 'data:text/csv;charset=UTF-8' + escape(this.table);

@@ -2,9 +2,8 @@
 var gulp = require('gulp');
 var browserSync = require("browser-sync")
 var nodemon = require('gulp-nodemon');
-var nodeInspector = require('gulp-node-inspector');
 
-gulp.task('default', ['browser-sync'], function () {
+gulp.task('default', ['browser-sync'], function() {
 	console.log('task default');
 });
 
@@ -18,18 +17,19 @@ gulp.task('browser-sync', ['nodemon'], function() {
 	});
 });
 
-gulp.task('nodemon', function (cb) {
+gulp.task('nodemon', function(cb) {
 	var started = false;
 	return nodemon({
+		//exec: 'node --inspect --debug-brk',
 		exec: 'node --inspect',
 		script: 'dev/app.js',
 		verbose: true
-	}).on('start', function () {
+	}).on('start', function() {
 		if (!started) {
 			cb();
 			started = true;
 		}
-	}).on('restart', function () {
+	}).on('restart', function() {
 		console.log('coucou');
 	})
 });
