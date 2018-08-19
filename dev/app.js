@@ -1,9 +1,8 @@
-
+/* jshint -W058 */
 var express = require('express');
 var app = express();
 var dataToolKit = new (require('data-tool-kit'));
 var app = express();
-var router = express.Router();
 
 app.use(express.static('dev'));
 
@@ -13,14 +12,15 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/dataToolKit/converter/jsonToTable', function(req, res, next) {
-    dataToolKit.init(req.query.columns, req.query.fileName);
-    dataToolKit.jsonToTable(req.query.json);
-    res.send(JSON.stringify(dataToolKit.getTable()));
+app.get('/dataToolKit/converter/json-to-csv', function(req, res) {
+    var csv = dataToolKit.convertJson2CSV(req.query.columns, req.query.fileName, req.query.json);
+    res.setHeader('Content-disposition', 'attachment;' + req.query.fileName);
+    res.set('Content-Type', 'text/csv');
+    res.status(200).send(csv);
 });
 
 
-app.get('(/default.html|\/)', function(req, res, next) {
+app.get('(/default.html|\/)', function(req, res) {
     res.sendfile('dev/default.html');
 });
 
