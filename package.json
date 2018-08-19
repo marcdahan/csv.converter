@@ -2,7 +2,7 @@
   "name": "csv-converter.2.0.0",
   "version": "2.0.0",
   "description": "csv converter avec ajout du plugin pour transformer le tableau en csv",
-  "main": "dev/app.js",
+  "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,7 +20,7 @@
     "body-parser": "^1.18.3",
     "browser-sync": "^2.24.6",
     "csv-writer": "^1.0.1",
-    "data-tool-kit": "file:dev/node_modules_privated/data-tool-kit",
+    "data-tool-kit": "file:src/node_modules_privated/data-tool-kit",
     "express": "^4.16.3",
     "fs": "0.0.1-security",
     "gulp": "^3.9.1",

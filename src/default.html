@@ -30,10 +30,23 @@
                     <input autocomplete="on" type="text" name="em-filename" placeholder="name of your csv file">
                     <span class="em-explanation">default value: export</span>
                 </label>
-                <label class="em-field em-headers">
-                    <input autocomplete="on" type="text" name="em-headers" placeholder="paste headers of your csv">
-                    <span class="em-explanation">default value:  ['Context', 'English', 'Français']</span>
-                </label>
+                <div class="em-block em-headers-builder">
+                    <div class="em-element em-repository">
+                        <div class="em-column-1">
+                            <label class="em-field em-column-1-id">
+                                <input autocomplete="on" type="text" name="em-column-1-id" placeholder="id of the column n°1">
+                            </label>
+                            <label class="em-field em-column-1-title">
+                                <input autocomplete="on" type="text" name="em-column-1-title" placeholder="Title of the column n°1">
+                                <span class="em-explanation"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="em-element em-buttons-columns">
+                        <button type="button" class="em-csv-add-column">add column</button>
+                        <button type="button" class="em-csv-remove-column">remove column</button>
+                    </div>
+                </div>
                 <label class="em-field em-json">
                     <input autocomplete="on" type="text" name="em-json" placeholder="paste Json object here">
                     <span class="em-explanation">

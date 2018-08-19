@@ -6,9 +6,9 @@ var fs = require('fs');
 // var createCsvWriter = require('csv-writer').createObjectCsvWriter;
 var dataToolKit = new (require('data-tool-kit'));
 
-var logger = fs.createWriteStream('dev/logs/log.txt', {flags: 'a'});
+var logger = fs.createWriteStream('src/logs/log.txt', {flags: 'a'});
 
-app.use(express.static('dev'));
+app.use(express.static('src'));
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
@@ -27,7 +27,7 @@ app.post('/dataToolKit/converter/json-to-csv', function(req, res) {
 
 
 app.get('(/default.html|\/)', function(req, res) {
-    res.sendfile('dev/default.html');
+    res.sendfile('src/default.html');
 });
 
 app.listen(5000, function() {
@@ -36,7 +36,7 @@ app.listen(5000, function() {
 
 
 // var csvWriter = createCsvWriter({
-//     path: 'dev/exports/' + fileName + '.csv',
+//     path: 'srcexports/' + fileName + '.csv',
 //     header: [
 //         {id: 'context', title: 'Context'},
 //         {id: 'english', title: 'English'},

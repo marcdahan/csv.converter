@@ -1,0 +1,40 @@
+.h1 {
+	text-align: center;
+}
+
+button, input {
+	padding: 10px;
+}
+
+.em-csv-form {
+	position: relative;
+	overflow: hidden;
+	.em-csv-form-legend {
+		text-align: left;
+	}
+	.em-field {
+		display:  block;
+		margin-bottom: 15px;
+		padding: 10px;
+		text-align: left;
+	}
+	.em-explanation {
+		display:  block;
+		width: 100%;
+		overflow: hidden;
+	}
+	.em-code-example {
+		background: #000;
+		color: #fff;
+		text-align: left;
+	}
+	.em-headers-builder {
+		.em-field {
+			display: inline;
+			padding: 0 10px  0 10px;
+		}
+		.em-buttons-columns {
+			padding: 0 10px  0 10px;
+		}
+	}
+}
