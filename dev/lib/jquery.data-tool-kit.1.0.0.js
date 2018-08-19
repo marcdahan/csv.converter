@@ -8,31 +8,11 @@
 
     $.fn.dataToolKit = function(tool) {
 		if (tool == 'json2csv') {
-			$(this).on('submit', function() {
-
+			$(this).on('submit', function(e) {
+                e.preventDefault();
 				var fileName = $(this).find("[name*='filename']").val() || 'export';
-				var columns = $(this).find("[name*='columns']").val() || ['Context', 'English', 'Français'];
+				var headers = $(this).find("[name*='headers']").val() || ['Context', 'English', 'Français'];
 				var json = $(this).find("[name*='json']").val() || {
-				    'encodages': {
-				        'BOM': 'byte order mark',
-				        'ISO 8859-1': {
-				            'EF BB BF': 'ï»¿',
-				            'U+233B4': 'caractère chinois signifiant « souche d\'un arbre »',
-				            'Dans les éditeurs de texte et navigateurs mal préparés pour traiter l\'UTF-8': 'en codage ISO-8859-1, l\'indicateur apparaît comme ï»¿'
-				        }
-				    },
-				    'disney': {
-				        'mickey': 'mouse',
-				        'donald': {
-				            'riri': 'astucieux',
-				            'fifi': 'débrouillard',
-				            'loulou': 'drôle',
-				            'amis': {
-				                'dingo': 'gentil',
-				                'Géo Trouvetou': 'génial'
-				            }
-				        }
-				    },
 					'search': {
 						'No salons found': 'Aucun salon trouvé',
 						"1 salon found": '1 salon trouvé',
@@ -42,26 +22,20 @@
 						'Our Salons in Near Cities': 'Nos salons dans les villes à proximité'
 					}
 				};
-
 				$.ajax({
-					  method: 'GET',
+					  method: 'POST',
 					  url: '/dataToolKit/converter/json-to-csv',
+                      enctype: 'multipart/form-data',
 					  data: {
-						  "json": json,
-						  "columns":  columns,
-						  "fileName": fileName
+						  "json":           JSON.stringify(json),
+						  "headers":        JSON.stringify(headers),
+						  "fileName":       fileName
 					  }
 					})
 					.done(function(data, textStatus, jqXHR) {
-						console.log('success');
-						data = {
-							'disney': {
-	  				        	'mickey': 'mouse'
-							}
-						};
-
+                        console.log(textStatus);
 						var a         = document.createElement('a');
-					    a.href        = 'data:text/csv;charset=UTF-8' + escape(JSON.stringify(data));
+					    a.href        = 'data:text/csv;charset=UTF-8,' + escape(data);
 					    a.target      = '_blank';
 					    a.download    = fileName + '.csv';
 					    document.body.appendChild(a);

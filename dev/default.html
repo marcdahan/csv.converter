@@ -30,6 +30,10 @@
                     <input autocomplete="on" type="text" name="em-filename" placeholder="name of your csv file">
                     <span class="em-explanation">default value: export</span>
                 </label>
+                <label class="em-field em-headers">
+                    <input autocomplete="on" type="text" name="em-headers" placeholder="paste headers of your csv">
+                    <span class="em-explanation">default value:  ['Context', 'English', 'Français']</span>
+                </label>
                 <label class="em-field em-json">
                     <input autocomplete="on" type="text" name="em-json" placeholder="paste Json object here">
                     <span class="em-explanation">
@@ -37,13 +41,10 @@
                         <pre class="em-code-example">
 
 {
-    'newsletter': {
-        'Firstname': 'Prénom',
-        'I Subscribe': 'Je m’inscris',
-        'Man': 'Homme',
-        'Name': 'Nom',
-        '* Mandatory fields': '* Champs obligatoires',
-        'Woman': 'Femme'
+    context: {
+        key1: 'Value1',
+        key2: 'Value2',
+        key1: 'Value3'
     }
 }
                     </pre>
@@ -55,6 +56,6 @@
     </body>
     <script type="text/javascript" src="lib/jquery.3.3.1.js"></script>
     <script type="text/javascript" src="lib/jquery.data-tool-kit.1.0.0.js"></script>
-    <script type="text/javascript" src="bin/polyglot.js"></script>
+    <script type="text/javascript" src="ext/polyglot.js"></script>
     <script type="text/javascript" src="js/csv-converter.form.js"></script>
 </html>

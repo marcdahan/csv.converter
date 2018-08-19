@@ -3,11 +3,11 @@ var browserSync = require("browser-sync");
 var nodemon = require('gulp-nodemon');
 
 gulp.task('default', ['browser-sync'], function() {
-	console.log('task default');
+	console.log('-------gulp run-------');
 });
 
 gulp.task('browser-sync', ['nodemon'], function() {
-	console.log('bs init');
+	console.log('-------browserSync run-------');
 	browserSync.init(null, {
 		proxy: "http://127.0.0.1:5000",
         files: ["dev/**/*.*"],
@@ -18,6 +18,7 @@ gulp.task('browser-sync', ['nodemon'], function() {
 
 gulp.task('nodemon', function(cb) {
 	var started = false;
+	console.log('-------nodemon run-------');
 	return nodemon({
 		//exec: 'node --inspect --debug-brk',
 		exec: 'node --inspect',
@@ -29,6 +30,6 @@ gulp.task('nodemon', function(cb) {
 			started = true;
 		}
 	}).on('restart', function() {
-		console.log('-------restarted-------');
+		console.log('-------restarted by nodemon-------');
 	});
 });
