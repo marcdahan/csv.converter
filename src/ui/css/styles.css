@@ -1,0 +1,50 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.h1 {
+  text-align: center; }
+
+button {
+  padding: 10px; }
+
+input {
+  padding: 10px; }
+
+input[type='text'] {
+  width: 20%; }
+
+.em-json-to-csv-form {
+  position: relative;
+  overflow: hidden; }
+  .em-json-to-csv-form .em-csv-form-legend {
+    text-align: left; }
+  .em-json-to-csv-form .em-field {
+    display: block;
+    margin-bottom: 15px;
+    padding: 10px;
+    text-align: left; }
+  .em-json-to-csv-form .em-explanation {
+    display: block;
+    width: 20%;
+    overflow: hidden; }
+  .em-json-to-csv-form .em-error-message {
+    color: blue; }
+  .em-json-to-csv-form .em-json .em-textarea {
+    width: 40%;
+    display: block;
+    height: 15rem; }
+  .em-json-to-csv-form .em-json .em-code-example {
+    background: #000;
+    color: #fff;
+    text-align: left; }
+  .em-json-to-csv-form .em-headers-builder .em-field {
+    display: inline;
+    padding: 0 10px  0 10px; }
+  .em-json-to-csv-form .em-headers-builder .em-buttons-columns {
+    padding: 0 10px  0 10px; }
+  .em-json-to-csv-form .em-headers-builder .em-buttons {
+    width: 20%; }
+  .em-json-to-csv-form .em-buttons.em-csv-submit {
+    width: 40%; }

@@ -1,4 +1,4 @@
-/* jshint -W098, -W002*/
+/* jshint -W098, -W002, -W061*/
 /*!
  * jQuery-data-tool-kit JavaScript Library v1.0.0
  *
@@ -32,52 +32,42 @@
 			$that.on('submit', function(e) {
                 e.stopPropagation();
                 e.preventDefault();
-                var fileName = $that.find("[name*='filename']").val() || 'export';
+                $that.find('.em-error-message').empty();
+                var fileName = $that.find("[name*='filename']").val();
                 var headers = [];
+                var preJson = null;
+                var json = null;
 				var $headers = $that.find("[name*='column']");
                 var columnNumber = null;
                 var title = '';
+                if (!fileName) {
+                    $that.find('.em-json .em-error-message').append('ERROR: ' + 'Le nom du fichier est vide.');
+                    throw 'ERROR: ' + 'Le nom du fichier est vide.';
+                }
                 $headers.each(function(index, element) {
-                    columnNumber = $(element).attr('data-column-number');
-                    title = $(element).val();
+                    var $element = $(element);
+                    columnNumber = $element.attr('data-column-number');
+                    title = $element.val();
                     if (title) {
                         headers.push(title);
                     } else {
-                        throw 'Le champs de la colonne n°' + columnNumber + 'est vide.';
+                        $element.closest('.em-block').find('.em-error-message').append('ERROR: ' + 'Le champs de la colonne n°' + columnNumber + ' est vide.');
+                        throw 'Le champs de la colonne n°' + columnNumber + ' est vide.';
                     }
                 });
-                var json = {
-					'search': {
-						'No salons found': 'Aucun salon trouvé',
-						"1 salon found": '1 salon trouvé',
-						'%1d salons found': '%1d salons trouvés',
-						'Franck Provost Hairdressing Salons in near cities': 'Les salons de coiffure Franck Provost dans les villes à proximité',
-						'Franck Provost Hairdressing Salons in near departments': 'Les salons de coiffure Franck Provost dans les départements limitrophes',
-						'Our Salons in Near Cities': 'Nos salons dans les villes à proximité'
-					}
-				};
-				/*var preJson = $that.find("[name*='json']").val(); || {
-					'search': {
-						'No salons found': 'Aucun salon trouvé',
-						"1 salon found": '1 salon trouvé',
-						'%1d salons found': '%1d salons trouvés',
-						'Franck Provost Hairdressing Salons in near cities': 'Les salons de coiffure Franck Provost dans les villes à proximité',
-						'Franck Provost Hairdressing Salons in near departments': 'Les salons de coiffure Franck Provost dans les départements limitrophes',
-						'Our Salons in Near Cities': 'Nos salons dans les villes à proximité'
-					}
-				};
-                if (!preJson) {
-                    throw 'Le champs Json' + columnNumber + 'est vide.';
-                }
                 try {
-                    json = JSON.parse(preJson.replace(/[\r\n\t]/g, ""));
+                    preJson = $that.find("[name*='json']").val();
+                    if (!preJson) {
+                        throw 'Le champs Json est vide.';
+                    }
+                    json = eval("(" + preJson + ')');
+                    if (Object.prototype.toString.call(json) !== '[object Object]') {
+                        throw 'Le champs Json n\'est pas un objet JSON.';
+                    }
                 } catch (e) {
-                    throw 'Le champs Json' + columnNumber + 'est invalide.';
+                    $that.find('.em-json .em-error-message').append('ERROR: ' + e);
+                    return;
                 }
-                if (Object.prototype.toString.call(json) !== '[object Object]') {
-                    throw 'Le champs Json' + columnNumber + 'n\'est pas un objet JSON.';
-                }
-                */
 
 				$.ajax({
 					  method: 'POST',
