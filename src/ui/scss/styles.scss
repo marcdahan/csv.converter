@@ -1,26 +1,29 @@
+@import 'reset';
+
 * {
 	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
+html, body {
+	background: #888;
+	color: white;
+}
+
 .h1 {
 	text-align: center;
+	font-size: 2rem;
+	margin: 20px 0;
 }
-
-button {
-	padding: 10px;
-}
-
-input {
-	padding: 10px;
-}
-
 
 input[type='text'] {
 	width: 20%;
 }
 
+button {
+	text-align: center;
+}
 
 .em-json-to-csv-form {
 	position: relative;
@@ -28,15 +31,26 @@ input[type='text'] {
 	.em-csv-form-legend {
 		text-align: left;
 	}
-	.em-field {
-		display:  block;
+	fieldset {
+		display: block;
+		color: #FFF;
+		-webkit-margin-start: 2px;
+		-webkit-margin-end: 2px;
+		border-width: 2px;
+		border-style: groove;
+		border-color: #FFF;
+		border-image: initial;
+		padding: 15px 10px 0 10px;
+		margin: 0 15px;
+	}
+	.em-add-margin-bottom {
+		text-align: left;
 		margin-bottom: 15px;
 		padding: 10px;
-		text-align: left;
 	}
 	.em-explanation {
 		display:  block;
-		width: 20%;
+		width: 40%;
 		overflow: hidden;
 	}
 	.em-error-message {
@@ -52,16 +66,13 @@ input[type='text'] {
 			background: #000;
 			color: #fff;
 			text-align: left;
+			margin-top: 0;
 		}
 	}
 
 	.em-headers-builder {
 		.em-field {
 			display: inline;
-			padding: 0 10px  0 10px;
-		}
-		.em-buttons-columns {
-			padding: 0 10px  0 10px;
 		}
 		.em-buttons {
 			width: 20%;

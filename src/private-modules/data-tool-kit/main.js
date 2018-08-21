@@ -66,11 +66,12 @@ DataToolKit.prototype.convertJsonToArrayOfObjects = function(json, path) {
             path = (path ? path + '.' : '');
             this.convertJsonToArrayOfObjects(value, path + key);
         } else if ($.type(value) === "string") {
-            this.arrayOfObjects.push({
-                Context: path,
-                English: key,
-                Français: value
-            });
+            var o = {};
+            var headers = this.getHeaders();
+            o[headers[0]] = path;
+            o[headers[1]] = key;
+            o[headers[2]] = value;
+            this.arrayOfObjects.push(o); //TODO check anomalie doit se faire automatiquement
         }
     }, this));
 };

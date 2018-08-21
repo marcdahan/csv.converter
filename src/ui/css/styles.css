@@ -1,33 +1,93 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
+html, body {
+  background: #888;
+  color: white; }
+
 .h1 {
-  text-align: center; }
-
-button {
-  padding: 10px; }
-
-input {
-  padding: 10px; }
+  text-align: center;
+  font-size: 2rem;
+  margin: 20px 0; }
 
 input[type='text'] {
   width: 20%; }
+
+button {
+  text-align: center; }
 
 .em-json-to-csv-form {
   position: relative;
   overflow: hidden; }
   .em-json-to-csv-form .em-csv-form-legend {
     text-align: left; }
-  .em-json-to-csv-form .em-field {
+  .em-json-to-csv-form fieldset {
     display: block;
+    color: #FFF;
+    -webkit-margin-start: 2px;
+    -webkit-margin-end: 2px;
+    border-width: 2px;
+    border-style: groove;
+    border-color: #FFF;
+    border-image: initial;
+    padding: 15px 10px 0 10px;
+    margin: 0 15px; }
+  .em-json-to-csv-form .em-add-margin-bottom {
+    text-align: left;
     margin-bottom: 15px;
-    padding: 10px;
-    text-align: left; }
+    padding: 10px; }
   .em-json-to-csv-form .em-explanation {
     display: block;
-    width: 20%;
+    width: 40%;
     overflow: hidden; }
   .em-json-to-csv-form .em-error-message {
     color: blue; }
@@ -38,12 +98,10 @@ input[type='text'] {
   .em-json-to-csv-form .em-json .em-code-example {
     background: #000;
     color: #fff;
-    text-align: left; }
+    text-align: left;
+    margin-top: 0; }
   .em-json-to-csv-form .em-headers-builder .em-field {
-    display: inline;
-    padding: 0 10px  0 10px; }
-  .em-json-to-csv-form .em-headers-builder .em-buttons-columns {
-    padding: 0 10px  0 10px; }
+    display: inline; }
   .em-json-to-csv-form .em-headers-builder .em-buttons {
     width: 20%; }
   .em-json-to-csv-form .em-buttons.em-csv-submit {

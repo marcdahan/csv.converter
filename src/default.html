@@ -27,46 +27,48 @@
             <fieldset>
                 <legend class="em-csv-form-legend">Translations from JSON to CSV:</legend>
                 <div class="em-block em-filename">
-                    <label class="em-field">
-                        <input autocomplete="on" type="text" name="em-filename" placeholder="name of your csv file">
+                    <label class="em-element">
+                        <input autocomplete="on" type="text" name="em-filename" class="em-add-margin-bottom" placeholder="name of your csv file">
                     </label>
                     <div class="em-error-message"></div>
                 </div>
                 <div class="em-block em-headers-builder">
                     <div class="em-element em-repository">
                         <div class="em-column-1">
-                            <label class="em-field em-column-1-title">
-                                <input type="text" data-column-number="1" name="em-column-1-title" placeholder="Title of the column n°1" autocomplete="on">
+                            <label class="em-element em-column-1-title">
+                                <input type="text" data-column-number="1" name="em-column-1-title" class="em-add-margin-bottom" placeholder="Title of the column n°1" autocomplete="on">
                                 <span class="em-explanation"></span>
                             </label>
                         </div>
                     </div>
                     <div class="em-error-message"></div>
                     <div class="em-element em-buttons-columns">
-                        <button type="button" class="em-buttons em-csv-add-column">add column</button>
-                        <button type="button" class="em-buttons em-csv-remove-column">remove column</button>
+                        <button type="button" class="em-buttons em-add-margin-bottom em-csv-add-column">add column</button>
+                        <button type="button" class="em-buttons em-add-margin-bottom em-csv-remove-column">remove column</button>
                     </div>
                 </div>
                 <div class="em-block em-json">
-                    <label class="em-field">
-                        <textarea class="em-element em-textarea" name="em-json" placeholder="paste Json object here"></textarea>
+                    <label class="em-element">
+                        <textarea class="em-element em-add-margin-bottom em-textarea" name="em-json"  class="em-add-margin-bottom" placeholder="paste Json object here"></textarea>
                     </label>
                     <div class="em-error-message"></div>
                     <div class="em-explanation">
-                        Exemple:
-                        <pre class="em-element em-code-example">
+                        <pre class="em-element em-add-margin-bottom em-code-example">
+    //prototype
+
+    //before                                            //after
 
     {
-        context: {
-            key1: 'Value1',
-            key2: 'Value2',
-            key1: 'Value3'
+        context: {                                     "context","key","value"
+            key1: 'Value1',                         "context1","key1","Value1"
+            key2: 'Value2',                         "context1","key2","Value2"
+            key1: 'Value3'                          "context1","key3","Value3"
         }
     }
                     </pre>
                     </div>
                 </div>
-                <button type="submit" class="em-buttons em-csv-submit">export to CSV</button>
+                <button type="submit" class="em-buttons em-add-margin-bottom em-csv-submit">export to CSV</button>
             </fieldset>
         </form>
     </body>

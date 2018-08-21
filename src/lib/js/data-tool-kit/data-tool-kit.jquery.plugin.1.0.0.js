@@ -15,8 +15,8 @@
                 countColumns++;
                 var html = '';
                 html += '<div class="em-column-' + countColumns + '">';
-                html +=     '<label class="em-field em-column-' + countColumns + '-title">';
-                html +=         '<input type="text" data-column-number="' + countColumns + '" name="em-column-' + countColumns + '-title" placeholder="Title of the column n°' + countColumns + '" autocomplete="on">';
+                html +=     '<label class="em-column-' + countColumns + '-title">';
+                html +=         '<input type="text" data-column-number="' + countColumns + '" name="em-column-' + countColumns + '-title" class="em-add-margin-bottom" placeholder="Title of the column n°' + countColumns + '" autocomplete="on">';
                 html +=         '<span class="em-explanation"></span>';
                 html +=     '</label>';
                 html += '</div>';
