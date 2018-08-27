@@ -10,6 +10,7 @@
 		if (tool == 'json2csv') {
             var countColumns = 1;
             var $that = $(this);
+
 			$that.find('.em-csv-add-column').on('click', function(e) {
                 e.stopPropagation();
                 countColumns++;
@@ -22,6 +23,7 @@
                 html += '</div>';
                 $that.find('.em-headers-builder .em-repository').append(html);
 			});
+
             $that.find('.em-csv-remove-column').on('click', function(e) {
                 e.stopPropagation();
                 if (countColumns > 1) {
@@ -29,6 +31,7 @@
                     countColumns--;
                 }
 			});
+
 			$that.on('submit', function(e) {
                 e.stopPropagation();
                 e.preventDefault();
@@ -42,7 +45,7 @@
                 var title = '';
                 if (!fileName) {
                     $that.find('.em-json .em-error-message').append('ERROR: ' + 'Le nom du fichier est vide.');
-                    throw 'ERROR: ' + 'Le nom du fichier est vide.';
+                    throw new Error('ERROR: ' + 'Le nom du fichier est vide.');
                 }
                 $headers.each(function(index, element) {
                     var $element = $(element);
@@ -52,21 +55,20 @@
                         headers.push(title);
                     } else {
                         $element.closest('.em-block').find('.em-error-message').append('ERROR: ' + 'Le champs de la colonne n°' + columnNumber + ' est vide.');
-                        throw 'Le champs de la colonne n°' + columnNumber + ' est vide.';
+                        throw new Error('Le champs de la colonne n°' + columnNumber + ' est vide.');
                     }
                 });
                 try {
                     preJson = $that.find("[name*='json']").val();
                     if (!preJson) {
-                        throw 'Le champs Json est vide.';
+                        throw new Error('Le champs Json est vide.');
                     }
                     json = eval("(" + preJson + ')');
                     if (Object.prototype.toString.call(json) !== '[object Object]') {
-                        throw 'Le champs Json n\'est pas un objet JSON.';
+                        throw new Error('Le champs Json n\'est pas un objet JSON.');
                     }
                 } catch (e) {
                     $that.find('.em-json .em-error-message').append('ERROR: ' + e);
-                    return;
                 }
 
 				$.ajax({
@@ -80,7 +82,6 @@
 					  }
 					})
 					.done(function(data, textStatus, jqXHR) {
-                        console.log(textStatus);
 						var a         = document.createElement('a');
 					    a.href        = 'data:text/csv;charset=UTF-8,' + escape(data);
 					    a.target      = '_blank';
@@ -89,7 +90,7 @@
 					    a.click();
 					})
 					.fail(function(jqXHR, textStatus, errorThrown) {
-						console.log('jqXHR: ' + jqXHR + ', textStatus: ' + textStatus + ', errorThrown: ' + errorThrown);
+                        throw new Error('jqXHR: ' + jqXHR + ', textStatus: ' + textStatus + ', errorThrown: ' + errorThrown);
 					});
 			});
 	    } //todo gérer les erreurs possibles

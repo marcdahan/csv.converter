@@ -8,6 +8,8 @@
         "require": true,
         "console": true,
         "$": true,
-        "jQuery": true
+        "jQuery": true,
+        "JSON": true,
+        "process": true
     }
 }

@@ -25,7 +25,7 @@
         <h1 class="h1">DATAS TOOL KIT</h1>
         <form action="javascript:;" class="em-json-to-csv-form" method="POST">
             <fieldset>
-                <legend class="em-csv-form-legend">Translations from JSON to CSV:</legend>
+                <legend class="em-csv-form-legend">Translations French-English from JSON to CSV:</legend>
                 <div class="em-block em-filename">
                     <label class="em-element">
                         <input autocomplete="on" type="text" name="em-filename" class="em-add-margin-bottom" placeholder="name of your csv file">
@@ -34,12 +34,18 @@
                 </div>
                 <div class="em-block em-headers-builder">
                     <div class="em-element em-repository">
-                        <div class="em-column-1">
-                            <label class="em-element em-column-1-title">
-                                <input type="text" data-column-number="1" name="em-column-1-title" class="em-add-margin-bottom" placeholder="Title of the column n°1" autocomplete="on">
-                                <span class="em-explanation"></span>
-                            </label>
-                        </div>
+                    	<div class="em-column-1">
+                    		<label class="em-element em-column-1-title">
+                    		<input type="text" data-column-number="1" name="em-column-1-title" class="em-add-margin-bottom" placeholder="path" value="Path" autocomplete="on">
+                    		<span class="em-explanation"></span>
+                    		</label>
+                    	</div>
+                    	<div class="em-column-2">
+                    		<label class="em-column-2-title"><input type="text" data-column-number="2" name="em-column-2-title" class="em-add-margin-bottom" placeholder="English" value="English" autocomplete="on"><span class="em-explanation"></span></label>
+                    	</div>
+                    	<div class="em-column-3">
+                    		<label class="em-column-3-title"><input type="text" data-column-number="3" name="em-column-3-title" class="em-add-margin-bottom" placeholder="Français" value="Français" autocomplete="on"><span class="em-explanation"></span></label>
+                    	</div>
                     </div>
                     <div class="em-error-message"></div>
                     <div class="em-element em-buttons-columns">

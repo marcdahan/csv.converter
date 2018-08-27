@@ -19,6 +19,7 @@ html, body {
 
 input[type='text'] {
 	width: 20%;
+	min-width: 223px;
 }
 
 button {
@@ -48,17 +49,22 @@ button {
 		margin-bottom: 15px;
 		padding: 10px;
 	}
+	.em-buttons-columns {
+		display: none;
+	}
 	.em-explanation {
 		display:  block;
 		width: 40%;
+		min-width: 446px;
 		overflow: hidden;
 	}
 	.em-error-message {
-		color: blue;
+		color: red;
 	}
 	.em-json {
 		.em-textarea {
 			width: 40%;
+			min-width: 446px;
 			display: block;
 			height: 15rem;
 		}
@@ -76,6 +82,7 @@ button {
 		}
 		.em-buttons {
 			width: 20%;
+			min-width: 223px;
 		}
 	}
 

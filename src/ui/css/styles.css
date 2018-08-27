@@ -60,7 +60,8 @@ html, body {
   margin: 20px 0; }
 
 input[type='text'] {
-  width: 20%; }
+  width: 20%;
+  min-width: 223px; }
 
 button {
   text-align: center; }
@@ -85,14 +86,18 @@ button {
     text-align: left;
     margin-bottom: 15px;
     padding: 10px; }
+  .em-json-to-csv-form .em-buttons-columns {
+    display: none; }
   .em-json-to-csv-form .em-explanation {
     display: block;
     width: 40%;
+    min-width: 446px;
     overflow: hidden; }
   .em-json-to-csv-form .em-error-message {
-    color: blue; }
+    color: red; }
   .em-json-to-csv-form .em-json .em-textarea {
     width: 40%;
+    min-width: 446px;
     display: block;
     height: 15rem; }
   .em-json-to-csv-form .em-json .em-code-example {
@@ -103,6 +108,7 @@ button {
   .em-json-to-csv-form .em-headers-builder .em-field {
     display: inline; }
   .em-json-to-csv-form .em-headers-builder .em-buttons {
-    width: 20%; }
+    width: 20%;
+    min-width: 223px; }
   .em-json-to-csv-form .em-buttons.em-csv-submit {
     width: 40%; }

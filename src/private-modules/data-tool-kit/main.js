@@ -4,6 +4,14 @@ var dom = new jsdom.JSDOM();
 var $ = require("jquery")(dom.window);
 var json2csv = require('json2csv').Parser;
 
+/**
+ * TODO : faire évolution [{id: 'identifiant'}, {name: 'nom'}, {surname: 'prénom'} ] pour les colonnes
+ * puis pour la valeur à  : [
+ *                          [ { id: '1'}, {name: 'Duck'}, {surname: 'Donald'} ],
+ *                          [ ....
+ *                      ]
+*/
+
 var DataToolKit = function() {
     this.fileName = null;
     this.headers = null;
@@ -38,7 +46,7 @@ DataToolKit.prototype.getCsvFromJson = function(headers, fileName, json) {
         this.convertJsonToArrayOfObjects(json);
         this.convertArrayOfObjects2CSV();
         return this.getCsv();
-    } else {
+    } else { 
         throw "bad parameter";
     }
 };
@@ -63,8 +71,7 @@ DataToolKit.prototype.convertJsonToArrayOfObjects = function(json, path) {
     }
     $.each(json, $.proxy(function(key, value) {
         if ($.type(value) === "object") {
-            path = (path ? path + '.' : '');
-            this.convertJsonToArrayOfObjects(value, path + key);
+            this.convertJsonToArrayOfObjects(value, (path ? path + '.' : '') + key);
         } else if ($.type(value) === "string") {
             var o = {};
             var headers = this.getHeaders();
