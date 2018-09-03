@@ -20,6 +20,7 @@
     "body-parser": "^1.18.3",
     "browser-sync": "^2.24.6",
     "data-tool-kit": "file:src/private-modules/data-tool-kit",
+    "eslint": "^5.4.0",
     "express": "^4.16.3",
     "express-urlrewrite": "^1.2.0",
     "fs": "0.0.1-security",

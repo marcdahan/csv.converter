@@ -1,5 +1,4 @@
 var express = require('express');
-var app = express();
 var JsonCsvRouter  = express.Router();
 var fs = require('fs');
 var logger = fs.createWriteStream('src/logs/log.txt', {flags: 'a'});//todo mettre en place un gestionnaire

@@ -1,4 +1,3 @@
-/* jshint -W058*/
 var gulp = require('gulp');
 var browserSync = require("browser-sync");
 var nodemon = require('gulp-nodemon');
@@ -32,17 +31,16 @@ path.monitoredFiles = [
 ];
 
 gulp.task('browser-sync', ['sass', 'nodemon'], function() {
-    beautyfullConsole.log('browserSync run');
+    beautyfullConsole.log('BrowserSync');
 	browserSync.init(null, {
 		proxy: "http://127.0.0.1:5000",
         files: path.monitoredFiles,
-        browser: "chrome",
-        port: 7000
+        browser: "chrome"
 	});
 });
 
 gulp.task('sass', function() {
-    beautyfullConsole.log('sass started operations');
+    beautyfullConsole.log('Sass');
 	return gulp.src(path.styles.src)
     	.pipe(sass())
     	.pipe(gulp.dest(path.styles.dest))
@@ -53,7 +51,7 @@ gulp.task('sass', function() {
 
 gulp.task('nodemon', ['sass'], function(cb) {
 	var started = false;
-        beautyfullConsole.log('nodemon started');
+        beautyfullConsole.log('Nodemon');
 	return nodemon({
 		//exec: 'node --inspect --debug-brk',
 		exec: 'node --inspect',
@@ -65,12 +63,10 @@ gulp.task('nodemon', ['sass'], function(cb) {
 			started = true;
 		}
 	}).on('restart', function() {
-        beautyfullConsole.log('nodemon restarted the server');
+        beautyfullConsole.log('Server has restarted');
 	});
 });
 
-gulp.task('default', ['sass', 'nodemon', 'browser-sync'], function() {
-    beautyfullConsole.log('default running');
-});
+gulp.task('default', ['sass', 'nodemon', 'browser-sync']);
 
 gulp.watch(path.styles.src, ['sass']);

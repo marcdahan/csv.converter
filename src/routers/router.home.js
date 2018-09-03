@@ -1,6 +1,5 @@
 var express = require('express');
-var app = express();
-var HomeRouter  = express.Router();
+var HomeRouter = express.Router();
 
 HomeRouter.route('(/default.html|\/)')
     .get(function(req, res) {

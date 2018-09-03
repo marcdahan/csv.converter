@@ -22,3 +22,9 @@ DATE | HEURE | proto
 DATE | HEURE | proto
 DATE | HEURE | traduction-franck-provost-20180821-v1
 DATE | HEURE | traduction-franck-provost-2050
+DATE | HEURE | traduction-franck-provost-2018-08-28-17-22
+DATE | HEURE | traduction-franck-provost-2018-08-29-15-23
+DATE | HEURE | traduction-franck-provost-2018-08-29-15-23
+DATE | HEURE | traduction-franck-provost-2018-08-29-15-23
+DATE | HEURE | traduction-franck-provost-2018-08-29-15-23
+DATE | HEURE | traduction-franck-provost-2018-08-29-15-23

@@ -73,8 +73,9 @@
 
 				$.ajax({
 					  method: 'POST',
-					  url: '/dataToolKit/converter/json-to-csv',
+					  url: '/api/json-to-csv',
                       enctype: 'multipart/form-data',
+                      headers : {'authorization' : 'eyhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Im1hcmMgZGFoYW4iLCJpYXQiOjE1MTYyMzkwMjJ9.fepI05MsYZ0MmKLjqYK7FHycc-3q5beDQx7TSXeaUNo'},
 					  data: {
 						  "json":           JSON.stringify(json),
 						  "headers":        JSON.stringify(headers),
