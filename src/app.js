@@ -1,5 +1,5 @@
-/* jshint -W058, -W024 */
-'use strict';
+/* jshint -W058, -W024, -W097 */
+"use strict";
 var express = require('express');
 var app = express();
 var router_home = require('./routers/router.home');
