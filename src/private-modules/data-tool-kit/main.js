@@ -104,4 +104,4 @@ DataToolKit.prototype.isArray = function(arr) {
     return bool;
 };
 
-module.exports = DataToolKit;
+module.exports = DataToolKit; //Todo : à changer avec module.exports.DataToolKit...

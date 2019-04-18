@@ -18,6 +18,7 @@ var bodyParser = require('body-parser');
  * 4.  réécriture du plugin avec typeScript
  * 5.  ajouter commentaires, documentation
  * 6.  ajouter une authentification oauth 2.0
+ * 7. ajouter webpack pour compiler la prod
  * 
  * *******************************************************************
 */
